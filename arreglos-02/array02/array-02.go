@@ -3,6 +3,8 @@
 y devuelvan la suma y el producto escalar de los vectores
 */
 
+package array02
+
 func ProductoYSumaDeVectores(array, array_1 []int) (int, int) {
 	suma := 0
 	productoEscalar := 0
