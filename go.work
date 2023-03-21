@@ -13,4 +13,5 @@ use (
 	./09-mapas
 	./10-figuras
 	./ejercicio-01
+	./arreglos-02
 )
