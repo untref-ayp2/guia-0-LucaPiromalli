@@ -6,20 +6,21 @@ import "fmt"
  muestre por pantalla el polinomio completo, por ejemplo si recibe los coeficientes:
 3.0, 2.0 y 1.0 debe mostrar 3.0 + 2.0 X + 1.0 X**2  */
 
-func Polinomio(coeficiente int) (resultado string) {
-	var numero int
-	for i := 0; i < coeficiente; i++ {
+func Polinomio(coeficiente ...float32) (resultado string) {
+	arreglo := make([]string, len(coeficiente)) // array del tamaño de la cantidad de coeficientes
+	for i := 0; i < len(coeficiente); i++ {
 
-		fmt.Print("Ingrese un entero: ")
-		fmt.Scanln(&numero)
-
-		if i == 0 {
-			resultado += string(numero) + " "
+		if i > 1 {
+			arreglo[i] = fmt.Sprintf(" %+.1f X**%v ", coeficiente[i], i) // (%+ .1f) Con este ejemplo el input sería "-3.1416" y el output sería "- 3.1 ""
+		} else if i == 1 {
+			arreglo[i] = fmt.Sprintf(" %+.1f X ", coeficiente[i])
 		} else {
-			resultado += string(numero) + "x**" + string(i)
+			arreglo[i] = fmt.Sprintf(" %.1f ", coeficiente[i])
 		}
 	}
-	return
+	for _, coeficiente := range arreglo {
+		fmt.Print(coeficiente)
+	}
 }
 
 /*/ Valores de retorno nombrados
